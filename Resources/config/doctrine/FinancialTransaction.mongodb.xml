@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                    https://github.com/doctrine/doctrine2/raw/master/doctrine-mapping.xsd">
+
+    <embedded-document name="JMS\Payment\CoreBundle\Document\FinancialTransaction">
+
+        <field name="extendedData"           fieldName="extendedData" type="string" />
+        <field name="processedAmount"           fieldName="processedAmount" type="string" />
+        <field name="reasonCode"           fieldName="reasonCode" type="string" />
+        <field name="referenceNumber"           fieldName="referenceNumber" type="string" />
+        <field name="requestedAmount"           fieldName="requestedAmount" type="string" />
+        <field name="responseCode"           fieldName="responseCode" type="string" />
+        <field name="state"           fieldName="state" type="int" />
+        <field name="createdAt"           fieldName="createdAt" type="date" />
+        <field name="updatedAt"           fieldName="updatedAt" type="date" />
+        <field name="trackingId"           fieldName="trackingId" type="int" />
+
+        <lifecycle-callbacks>
+            <lifecycle-callback type="prePersist" method="onPrePersist"/>
+            <lifecycle-callback type="preUpdate" method="onPrePersist" />
+            <lifecycle-callback type="postLoad" method="onPostLoad" />
+        </lifecycle-callbacks>
+
+    </embedded-document>
+
+</doctrine-mapping>

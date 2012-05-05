@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mongo-mapping xmlns="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
+                        http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
+
+    <embedded-document name="JMS\Payment\CoreBundle\Document\RecurringInstruction">
+        <field name="amount"            fieldName="amount"           type="string" />
+        <field name="billingInterval"   fieldName="billingInterval"  type="string" />
+        <field name="billingFrequency"  fieldName="billingFrequency" type="string" />
+        <field name="currency"          fieldName="currency"         type="string" />
+        <field name="description"       fieldName="description"      type="string" />
+        <field name="endDate"           fieldName="endDate"          type="date" />
+        <field name="horizon"           fieldName="horizon" type="string" />
+        <field name="name"              fieldName="name" type="string" />
+        <field name="paymentSystemName" fieldName="paymentSystemName" type="string" />
+        <field name="startDate"         fieldName="startDate" type="date" />
+        <field name="state"             fieldName="state" type="string" />
+
+        <embed-one field="customer" fieldName="customer" />
+
+        <embed-one target-document="JMS\Payment\CoreBundle\Document\ExtendedData" field="extendedData" fieldName="extendedData" />
+        <embed-one target-document="JMS\Payment\CoreBundle\Document\CreditCardProfile" field="creditCardProfile" fieldName="creditCardProfile" />
+    </embedded-document>
+</doctrine-mongo-mapping>

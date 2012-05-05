@@ -1,10 +1,8 @@
 <?php
 
-namespace JMS\Payment\CoreBundle\Entity;
+namespace JMS\Payment\CoreBundle\Document;
 
-use JMS\Payment\CoreBundle\Model\ExtendedDataInterface;
-use JMS\Payment\CoreBundle\Model\PaymentInstruction as AbstractPaymentInstruction;
-use Doctrine\Common\Collections\ArrayCollection;
+use JMS\Payment\CoreBundle\Model\FinancialTransaction as AbstractFinancialTransaction;
 
 /*
  * Copyright 2010 Johannes M. Schmitt <schmittjoh@gmail.com>
@@ -22,19 +20,13 @@ use Doctrine\Common\Collections\ArrayCollection;
  * limitations under the License.
  */
 
-class PaymentInstruction extends AbstractPaymentInstruction
+class FinancialTransaction extends AbstractFinancialTransaction
 {
     private $id;
-    private $extendedData;
 
-    public function __construct($amount, $currency, $paymentSystemName, ExtendedDataInterface $data = null)
+    public function __construct()
     {
-        if (null === $data) {
-            $data = new ExtendedData();
-        }
-        $this->extendedData = $data;
-
-        parent::__construct($amount, $currency, $paymentSystemName);
+        parent::__construct();
     }
 
     public function getId()

@@ -1,8 +1,8 @@
 <?php
 
-namespace JMS\Payment\CoreBundle\Entity;
+namespace JMS\Payment\CoreBundle\Document;
 
-use JMS\Payment\CoreBundle\Model\FinancialTransaction as AbstractFinancialTransaction;
+use JMS\Payment\CoreBundle\Model\ExtendedData as AbstractExtendedData;
 
 /*
  * Copyright 2010 Johannes M. Schmitt <schmittjoh@gmail.com>
@@ -20,17 +20,7 @@ use JMS\Payment\CoreBundle\Model\FinancialTransaction as AbstractFinancialTransa
  * limitations under the License.
  */
 
-class FinancialTransaction extends AbstractFinancialTransaction
+class ExtendedData extends AbstractExtendedData
 {
-    private $id;
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    public function getId()
-    {
-        return $this->id;
-    }
 }

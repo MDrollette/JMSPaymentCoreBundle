@@ -1,6 +1,6 @@
 <?php
 
-namespace JMS\Payment\CoreBundle\Entity;
+namespace JMS\Payment\CoreBundle\Document;
 
 use JMS\Payment\CoreBundle\Model\ExtendedDataInterface;
 use JMS\Payment\CoreBundle\Model\PaymentInstruction as AbstractPaymentInstruction;
@@ -25,7 +25,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 class PaymentInstruction extends AbstractPaymentInstruction
 {
     private $id;
-    private $extendedData;
 
     public function __construct($amount, $currency, $paymentSystemName, ExtendedDataInterface $data = null)
     {
@@ -33,8 +32,6 @@ class PaymentInstruction extends AbstractPaymentInstruction
             $data = new ExtendedData();
         }
         $this->extendedData = $data;
-
-        parent::__construct($amount, $currency, $paymentSystemName);
     }
 
     public function getId()
